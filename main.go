@@ -42,7 +42,11 @@ func main() {
 	// setup goproxy configurations
 	p.GoBinEnv = append(p.GoBinEnv, "GOPROXY=direct")
 	// setup proxy sumdb
-	p.ProxiedSUMDBs = append(p.ProxiedSUMDBs, "sum.golang.org", "sum.golang.google.cn")
+	p.ProxiedSUMDBs = append(
+		p.ProxiedSUMDBs,
+		"sum.golang.org",
+		"sum.golang.google.cn",
+	)
 
 	if err := http.ListenAndServe(":3008", &LoggingHandler{
 		p: p,
